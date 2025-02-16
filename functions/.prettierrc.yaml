@@ -1,0 +1,13 @@
+overrides:
+  - files: "src/**/*.{ts}"
+    options:
+      parser: typescript
+  - files: "src/**/*.{js,cjs,mjs}"
+    options:
+      parser: meriyah
+  - files:
+      - ".vscode/*.json"
+      - "tsconfig.json"
+    options:
+      trailingComma: none
+      parser: jsonc

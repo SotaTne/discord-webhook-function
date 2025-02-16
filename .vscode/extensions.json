@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "ms-ceintl.vscode-language-pack-ja",
+    "dbaeumer.vscode-eslint",
+    "xabikos.javascriptsnippets",
+    "christian-kohler.npm-intellisense",
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "prisma.prisma",
+    "mosapride.zenkaku"
+  ]
+}
