@@ -14,7 +14,9 @@ import * as logger from "firebase-functions/logger";
 // https://firebase.google.com/docs/functions/typescript
 
 export const helloWorld = onRequest((request, response) => {
-  logger.info("Hello logs!", { structuredData: true });
+  logger.info("Hello logs!" + process.env.AUTH_WEBHOOK_BEARER_TOKEN, {
+    structuredData: true,
+  });
   response.send(
     "Hello from Firebase! AuthToken is :" +
       process.env.AUTH_WEBHOOK_BEARER_TOKEN,
