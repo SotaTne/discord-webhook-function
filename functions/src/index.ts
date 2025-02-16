@@ -14,11 +14,15 @@ import * as logger from "firebase-functions/logger";
 // https://firebase.google.com/docs/functions/typescript
 
 export const helloWorld = onRequest((request, response) => {
-  logger.info("Hello logs!" + process.env.AUTH_WEBHOOK_BEARER_TOKEN, {
-    structuredData: true,
-  });
-  response.send(
-    "Hello from Firebase! AuthToken is :" +
-      process.env.AUTH_WEBHOOK_BEARER_TOKEN,
-  );
+  // logger.info("Hello logs!" + process.env.AUTH_WEBHOOK_BEARER_TOKEN, {
+  //   structuredData: true,
+  // });
+  // response.send(
+  //   "Hello from Firebase! AuthToken is :" +
+  //     process.env.AUTH_WEBHOOK_BEARER_TOKEN,
+  // );
+  response.set("Access-Control-Allow-Origin", "*");
+
+  // 関数の処理
+  response.send("Hello World");
 });
