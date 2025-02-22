@@ -104,12 +104,13 @@ jobs:
 
       - name: Echo Functions
         run: |
-          echo 'gcloud functions list --filter="httpsTrigger:*" \
-          --format="value(name)" --region=$REGION' >> $GITHUB_ENV
+          echo 'FUNCTIONS = $(gcloud functions list --filter="httpsTrigger:*" \
+          --format="value(name)" --region=$REGION)' >> $GITHUB_ENV
+          echo $FUNCTIONS
 
       - name: Make Function Public
         run: |
-          for FUNCTION in $(gcloud functions list --format="value(name)" --filter="trigger_http=True" --regions=$REGION); do
+          for FUNCTION in $ do
             echo "Making $FUNCTION public..."
             echo $FUNCTION
             gcloud functions add-iam-policy-binding $FUNCTION \
