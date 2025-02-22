@@ -100,10 +100,9 @@ jobs:
 
       - name: Make Function Public
         run: |
-          for FUNCTION in $(gcloud functions list --format="value(name)" --filter="trigger_http=True" --region=$REGION); do
+          for FUNCTION in $(gcloud functions list --format="value(name)" --filter="trigger_http=True"); do
             echo "Making $FUNCTION public..."
-            gcloud functions add-iam-policy-binding $FUNCTION \
-              --member="allUsers" \
-              --role="roles/cloudfunctions.invoker" \
-              --region=$REGION
+            gcloud run services add-iam-policy-binding $FUNCTION \
+              --member="user:${{ secrets.GCP_USER_EMAIL }}" \
+              --role="roles/run.invoker"
           done
