@@ -21,8 +21,8 @@ export const helloWorld = onRequest((request, response) => {
   //   "Hello from Firebase! AuthToken is :" +
   //     process.env.AUTH_WEBHOOK_BEARER_TOKEN,
   // );
-  response.set("Access-Control-Allow-Origin", "*");
+  // response.set("Access-Control-Allow-Origin", "*");
 
   // 関数の処理
-  response.send("Hello World");
+  response.send("Hello World !");
 });
