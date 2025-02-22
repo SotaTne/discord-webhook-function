@@ -104,7 +104,8 @@ jobs:
 
       - name: Echo Functions
         run: |
-          gcloud functions list --format="value(name)" --regions=$REGION
+          echo 'gcloud functions list --filter="httpsTrigger:*" \
+          --format="value(name)" --region=$REGION' >> $GITHUB_ENV
 
       - name: Make Function Public
         run: |
