@@ -104,11 +104,11 @@ jobs:
 
       - name: Echo Functions
         run: |
-          gcloud functions list --format="value(name)" --region=$REGION
+          gcloud functions list --format="value(name)" --regions=$REGION
 
       - name: Make Function Public
         run: |
-          for FUNCTION in $(gcloud functions list --format="value(name)" --filter="trigger_http=True" --region=$REGION); do
+          for FUNCTION in $(gcloud functions list --format="value(name)" --filter="trigger_http=True" --regions=$REGION); do
             echo "Making $FUNCTION public..."
             echo $FUNCTION
             gcloud functions add-iam-policy-binding $FUNCTION \
