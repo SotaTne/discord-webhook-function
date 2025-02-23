@@ -103,7 +103,7 @@ jobs:
           firebase deploy --only functions --force --project=firebase-discord-webhook
 
       - name: Echo Functions
-        run: echo "JSON_STRING=$(gcloud functions list --format=json --regions=$REGION | jq -r '.')" >> $GITHUB_ENV
+        run: gcloud functions list --format=json --regions=$REGION | jq -c '.' | sed 's/%/%25/g; s/\n/%0A/g; s/\r/%0D/g' | awk '{print "JSON_STRING="$0}' >> $GITHUB_ENV
 
       - name: Set Functions
         run: |
