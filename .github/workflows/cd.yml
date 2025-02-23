@@ -117,8 +117,7 @@ jobs:
           for FUNCTION in $HTTP_FUNCTION_NAMES; do
             echo "Making $FUNCTION public..."
             echo $FUNCTION
-            gcloud functions add-iam-policy-binding helloWorld\
+            gcloud run services add-iam-policy-binding helloWorld\
               --member="allUsers" \
-              --role="roles/run.invoker" \
-              --region=$REGION
+              --role="roles/run.invoker" 
           done
