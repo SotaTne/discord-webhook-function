@@ -109,6 +109,9 @@ jobs:
             paste -sd, -)
           echo "HTTP_FUNCTION_NAMES=$HTTP_FUNCTION_NAMES" >> $GITHUB_ENV
 
+      - name: Echo Functions
+        run: echo $HTTP_FUNCTION_NAMES
+
       - name: Make Function Public
         run: |
           for FUNCTION in $HTTP_FUNCTION_NAMES; do
