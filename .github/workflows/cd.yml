@@ -103,7 +103,7 @@ jobs:
           firebase deploy --only functions --force --project=firebase-discord-webhook
 
       - name: Echo Functions
-        run: gcloud functions list --format=yaml --regions=$REGION
+        run: gcloud functions list --format=json --regions=$REGION --v2
 
       - name: Set Functions
         run: |

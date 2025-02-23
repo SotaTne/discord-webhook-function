@@ -7,6 +7,8 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
+import { logger } from "firebase-functions";
+import { onDocumentWritten } from "firebase-functions/firestore";
 import { onRequest } from "firebase-functions/v2/https";
 // import * as logger from "firebase-functions/logger";
 
@@ -26,3 +28,10 @@ export const helloWorld = onRequest((request, response) => {
   // 関数の処理
   response.send("Hello World-! ");
 });
+
+export const helloWorld2 = onDocumentWritten(
+  "my-collection/{docId}",
+  (event) => {
+    logger.info("Hello logs!", { structuredData: true });
+  },
+);
