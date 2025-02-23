@@ -103,11 +103,11 @@ jobs:
           firebase deploy --only functions --force --project=firebase-discord-webhook
 
       - name: Echo Functions
-        run: gcloud functions list --format=json --regions=$REGION | jq -c '.' | sed 's/%/%25/g; s/\n/%0A/g; s/\r/%0D/g' | awk '{print "JSON_STRING="$0}' >> $GITHUB_ENV
+        run: gcloud functions list --format=yaml --regions=$REGION
 
       - name: Set Functions
         run: |
-          echo $JSON_STRING
+          echo hello
 
       - name: Make Function Public
         run: |
