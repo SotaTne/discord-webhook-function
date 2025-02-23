@@ -29,7 +29,7 @@ export const helloWorld = onRequest((request, response) => {
   response.send("Hello World-!");
 });
 
-export const helloWorld2 = onDocumentWritten(
+export const super_firebase_document_written = onDocumentWritten(
   "my-collection/{docId}",
   (event) => {
     logger.info("Hello logs ! ", { structuredData: true });
