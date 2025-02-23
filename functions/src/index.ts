@@ -32,6 +32,6 @@ export const helloWorld = onRequest((request, response) => {
 export const helloWorld2 = onDocumentWritten(
   "my-collection/{docId}",
   (event) => {
-    logger.info("Hello logs !", { structuredData: true });
+    logger.info("Hello logs ! ", { structuredData: true });
   },
 );
