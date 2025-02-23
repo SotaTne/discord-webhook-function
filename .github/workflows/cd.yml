@@ -114,11 +114,7 @@ jobs:
 
       - name: Make Function Public
         run: |
-          gcloud functions add-invoker-policy-binding projects/firebase-discord-webhook/locations/us-central1/functions/helloWorld --member="allUsers" --region=$REGION
-          # for FUNCTION in $HTTP_FUNCTION_NAMES; do
-          #   echo "Making $FUNCTION public..."
-          #   echo $FUNCTION
-          #   gcloud run services add-iam-policy-binding projects/firebase-discord-webhook/locations/us-central1/functions/helloWorld \
-          #     --member="allUsers" \
-          #     --role="roles/run.invoker" \
-          # done
+          for FUNCTION in $HTTP_FUNCTION_NAMES; do
+            echo "Making $FUNCTION public..."
+            gcloud functions add-invoker-policy-binding $FUNCTION --member="allUsers" --region=$REGION
+          done

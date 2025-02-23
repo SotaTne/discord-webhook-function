@@ -23,6 +23,6 @@ export const helloWorld = onRequest({}, (request, response) => {
 export const superFirebaseDocumentWritten = onDocumentWritten(
   "my-collection/{docId}",
   (event) => {
-    logger.info("Hello logs!  ", { structuredData: true });
+    logger.info("Hello logs !  ", { structuredData: true });
   },
 );
