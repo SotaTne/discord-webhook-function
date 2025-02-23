@@ -119,5 +119,6 @@ jobs:
             echo $FUNCTION
             gcloud run services add-iam-policy-binding helloWorld\
               --member="allUsers" \
-              --role="roles/run.invoker" 
+              --role="roles/run.invoker" \
+              --region=$REGION
           done
