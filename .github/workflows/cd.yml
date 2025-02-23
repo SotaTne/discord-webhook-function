@@ -102,16 +102,16 @@ jobs:
           npm install -g firebase-tools
           firebase deploy --only functions --force --project=firebase-discord-webhook
 
-      - name: Echo Functions
-        run: gcloud functions list --format=json --regions=$REGION --v2
-
       - name: Set Functions
         run: |
-          echo hello
+          HTTP_FUNCTION_NAMES=$(gcloud functions list --format=json --regions=$REGION --v2 | \
+            jq -r '.[] | select(.serviceConfig.environmentVariables.FUNCTION_SIGNATURE_TYPE=="http") | .name' | \
+            paste -sd, -)
+          echo "HTTP_FUNCTION_NAMES=$HTTP_FUNCTION_NAMES" >> $GITHUB_ENV
 
       - name: Make Function Public
         run: |
-          for FUNCTION in $FUNCTIONS; do
+          for FUNCTION in $HTTP_FUNCTION_NAMES; do
             echo "Making $FUNCTION public..."
             echo $FUNCTION
             gcloud functions add-iam-policy-binding $FUNCTION \
