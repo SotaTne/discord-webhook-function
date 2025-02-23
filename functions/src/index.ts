@@ -24,5 +24,5 @@ export const helloWorld = onRequest((request, response) => {
   response.set("Access-Control-Allow-Origin", "*");
 
   // 関数の処理
-  response.send("Hello World 0-!");
+  response.send("Hello World-!");
 });

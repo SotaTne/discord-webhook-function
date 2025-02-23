@@ -104,6 +104,7 @@ jobs:
 
       - name: Echo Functions
         run: |
+          echo gcloud functions list --format=json --regions=$REGION
           # echo "FUNCTIONS=$(gcloud functions list --format=json --regions=$REGION)" >> $GITHUB_ENV
           # echo $FUNCTIONS
           echo "JSON_STRING=$(gcloud functions list --format=json --regions=$REGION | jq -c .)" >> $GITHUB_ENV
