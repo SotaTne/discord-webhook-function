@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "module": "CommonJS",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "outDir": "lib",
+    "lib": ["es2022.array"],
     "sourceMap": true,
     "strict": true,
     "target": "es2017"
