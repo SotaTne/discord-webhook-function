@@ -5,6 +5,7 @@ import * as admin from "firebase-admin";
 import * as logger from "firebase-functions/logger";
 import { v4 as uuidv4 } from "uuid";
 
+// 更新の適応のためのコメント
 // 定数定義を集約
 const CONSTANTS = {
   MAX_RETRY_COUNT: 3,
