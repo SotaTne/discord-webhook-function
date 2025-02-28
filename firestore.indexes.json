@@ -1,4 +1,13 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "schedules",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "nextExecution", "order": "ASCENDING" }
+      ]
+    }
+  ],
   "fieldOverrides": []
 }

@@ -98,7 +98,10 @@ jobs:
         working-directory: ./functions
 
       - name: Create .env file
-        run: echo "WEBHOOK_TARGET_URL=${{ secrets.WEBHOOK_TARGET_URL }}" > functions/.env
+        run: printf "WEBHOOK_TARGET_URL=%s\n" "${{ secrets.WEBHOOK_TARGET_URL }}" > functions/.env
+
+      - name: Debug .env
+        run: cat functions/.env
 
       - name: Deploy to Functions
         run: |
