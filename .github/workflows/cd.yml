@@ -97,12 +97,13 @@ jobs:
         run: npm install
         working-directory: ./functions
 
+      - name: Create .env file
+        run: echo "WEBHOOK_TARGET_URL=${{ secrets.WEBHOOK_TARGET_URL }}" > functions/.env
+
       - name: Deploy to Functions
         run: |
           npm install -g firebase-tools
           firebase deploy --only functions --force --project=firebase-discord-webhook
-        env:
-          WEBHOOK_TARGET_URL: ${{ secrets.WEBHOOK_TARGET_URL }}
 
       - name: Set Functions
         run: |
